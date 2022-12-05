@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  gateway:
+    build:
+      context: gateway/docker/development/nginx
+    ports:
+      - "8080:80"
+      - "8081:80"
+    depends_on:
+      - frontend
+      - api
+
+  frontend:
+    build:
+      context: ./frontend/docker/development/nginx
+    volumes:
+      - ./frontend:/app
+
+  api-php-fpm:
+    build:
+      context: ./api/docker/development/php-fpm
+    volumes:
+      - ./api:/app
+
+  api:
+    build:
+      context: ./api/docker/development/nginx
+
+    volumes:
+      - ./api:/app
+    depends_on:
+      - api-php-fpm
