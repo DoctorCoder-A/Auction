@@ -2,7 +2,8 @@ version: '3.8'
 services:
   gateway:
     build:
-      context: gateway/docker/development/nginx
+      context: gateway/docker/
+      dockerfile: development/nginx/Dockerfile
     ports:
       - "8080:80"
       - "8081:80"
