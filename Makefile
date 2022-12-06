@@ -41,3 +41,8 @@ deploy:
 	ssh ${HOST} -p ${PORT} 'cd site_${BUILD_NUMBER} && docker-compose -f docker-compose-production.yml up -d'
 	ssh ${HOST} -p ${PORT} 'rm -f site'
 	ssh ${HOST} -p ${PORT} 'ln -sr site_${BUILD_NUMBER} site'
+rollback:
+	ssh ${HOST} -p ${PORT} 'cd site ${BUILD_NUMBER} && docker-compose -f docker-compose-production.yml pull'
+	ssh ${HOST} -p ${PORT} 'cd site ${BUILD_NUMBER} && docker-compose -f docker-compose-production.yml up build --remove-orphans -d'
+	ssh ${HOST} -p ${PORT} 'rm -rf site'
+	ssh ${HOST} -p ${PORT} 'ln -sr site_${BUILD_NUMBER} site'
