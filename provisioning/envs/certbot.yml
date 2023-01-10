@@ -1,0 +1,4 @@
+certbot_email: zzz.dzudo@gmail.com
+certbot_hosts:
+  - demo-auction.doctor-csrw.ru
+  - api.demo-auction.doctor-csrw.ru
