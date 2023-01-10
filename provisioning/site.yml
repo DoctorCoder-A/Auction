@@ -3,10 +3,10 @@
     hosts: all
     remote_user: root
     vars:
-      certbot_email: mail@deworker.pro
+      certbot_email: zzz.dzudo@gmail.com
       certbot_hosts:
-        - demo-auction.deworker.pro
-        - api.demo-auction.deworker.pro
+        - demo-auction.doctor-csrw.ru
+        - api.demo-auction.doctor-csrw.ru
     tasks:
       -   import_tasks: tasks/setup_docker.yml
       -   import_tasks: tasks/setup_certbot.yml
