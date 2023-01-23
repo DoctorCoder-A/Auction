@@ -39,3 +39,8 @@ services:
         dockerfile: development/php-cli/Dockerfile
       volumes:
         - ./api:/app
+
+networks:
+  default:
+    name: "auction-network"
+    external: true
